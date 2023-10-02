@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Lunasima', sans-serif;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.nav {
+  display: flex;
+  background-color: #93ace0;
+  box-shadow: 0px 3px 10px #9db6ec;
+}
+
+.logo {
+  padding: 1rem;
+}
+
+.logo img {
+  width: 80px;
+}
+
+.titulo {
+  margin: 3rem 1rem 6rem 1rem;
+  font-size: 48px;
+}
+
+.formulario {
+  margin: 0 auto;
+  display: none;
+}
+
+.formulario.activo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formulario h1 {
+  font-size: 25px;
+}
+
+#form {
+  margin: 1rem;
+}
+
+#form label input {
+  margin: .5rem auto;
+}
+
+.fichas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: #93ace0;
+  box-shadow: 0px 0px 20px #9db6ec;
+}
+
+.ficha {
+  margin: 1rem;
+  padding: 1.5rem;
+  min-width: 300px;
+  background-color: #e4e6f0;
+  border-color: #24262c;
+  border-radius: 2rem;
+  border-style: solid;
+}
+
+.boton-accion {
+  padding: 10px;
+  font-size: 20px;
+  border-color: #24262c;
+  border-radius: .2rem;
+  border-width: 2px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.acciones:hover {
+  font-size: 22px;
+}
+
+.guardar {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+}
+
+footer {
+  background-color: #0c3c5c;
+  color: #f8f8f8;
+  padding: .5rem;
+}
+
+@media (max-width: 520px) {
+  .titulo {
+    font-size: 32px;
+    margin: 2rem .5rem;
+  }
+  .ficha {
+    margin: 1rem .5rem;
+    padding: 1rem;
+    min-width: 200px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Gestión de productos</title>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <a href="#">
+          <img src="img/logo.png" alt="Logo">
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1 class="titulo">App de recursos humanos</h1>
+    <div id="inventario" class="contenedor-inventario">
+    </div>
+    <i id="btn-abrir-modal" class="fa-solid fa-plus boton-accion boton-abrir-modal"></i>
+    <i id="agrandar" class="fa-solid fa-plus boton-accion"></i><i id="borrar" class="fa-solid fa-trash acciones"></i>
+    <dialog class="modal" id="modal">
+      <button type="button" id="btn-cerrar-modal" class="fa-solid fa-minus boton-accion boton-cerrar-modal"></button>
+      <h1>Datos para agregar</h1>
+      <form id="form">
+        <label>Producto: <input type="text" name="producto" id="producto"></label><br>
+        <label>Precio: <input type="number" name="precio" id="precio"></label><br>
+        <label>Categoría: <input type="text" name="categoria" id="categoria"></label><br>
+        <button class="guardar" type="submit" value="&#xf0c7; Guardar">
+      </form>
+    </dialog>
+  </main>
+  <footer>
+    <i>App RH | &copy; todos los derechos reservados</i>
+  </footer>
+  <script src="main.js"></script>
+  <script src="https://kit.fontawesome.com/9f6d64beab.js" crossorigin="anonymous"></script>
+</body>
+</html>
