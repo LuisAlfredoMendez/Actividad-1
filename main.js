@@ -1,17 +1,6 @@
 const inventario = document.getElementById("inventario");
 const form = document.getElementById("form");
 
-const modal = document.querySelector("#modal");
-const btnAbrirModal = document.querySelector("#btn-abrir-modal");
-const btnCerrarModal = document.querySelector("#btn-cerrar-modal");
-
-btnAbrirModal.addEventListener("click", () => {
-  modal.showModal();
-});
-btnCerrarModal.addEventListener("click", () => {
-  modal.close();
-});
-
 document.getElementById("borrar").addEventListener('click', () => {
   arraydatos = [];
   localStorage.setItem('datos', JSON.stringify(arraydatos));
@@ -34,22 +23,23 @@ const CrearItem = (producto, precio, categoria) => {
     arraydatos.push(item)
     localStorage.setItem('datos', JSON.stringify(arraydatos));
     form.reset();
-    modal.close();
   }
 }
 
 function mostrarInventario() {
   let datos = JSON.parse(localStorage.getItem('datos'));
-  // let approved = students.filter(student => student.score >= 11);
+  // let filtrado = students.filter(student => student.score >= 11);
   if (!datos.length) {
     inventario.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
   } else {
     inventario.innerHTML = ``;
     datos.forEach(dato => {
-      inventario.innerHTML += `<div class="ficha">
-      <h3>Producto: ${dato.producto}</h3>
-      <h3>Precio Unitario: ${dato.precio}</h3>
-      <h3>Categoría: ${dato.categoria}</h3>
+      inventario.innerHTML += `<div class="card mb-3">
+      <div class="card-body">
+        <h3>Producto: ${dato.producto}</h3>
+        <h3>Precio Unitario: ${dato.precio}</h3>
+        <h3>Categoría: ${dato.categoria}</h3>
+      </div>
     </div>`;
     });
   }
@@ -61,6 +51,7 @@ form.addEventListener('submit', (e) => {
   let precio = document.getElementById("precio").value;
   let categoria = document.getElementById("categoria").value;
 
+  console.log(document.getElementById("producto").value)
   CrearItem(producto, precio, categoria);
   mostrarInventario()
 })
