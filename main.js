@@ -19,8 +19,8 @@ document.getElementById("borrar").addEventListener('click', () => {
 })
 
 const CrearItem = (producto, precio, categoria) => {
-  if ((producto.length > 18 || producto.length < 4) || (precio.length > 9 || precio.length < 5) || (categoria.length > 32 || categoria.length < 4)) {
-    alert("Información invalida.")
+  if ((producto.length > 18 || producto.length < 4) || (precio.length > 9 || precio.length < 1) || (categoria.length > 32 || categoria.length < 4)) {
+    alert("Información invalida.");
   } else {
     let arraydatos = JSON.parse(localStorage.getItem('datos'));
     if (arraydatos === null) {
@@ -33,6 +33,8 @@ const CrearItem = (producto, precio, categoria) => {
     }
     arraydatos.push(item)
     localStorage.setItem('datos', JSON.stringify(arraydatos));
+    form.reset();
+    modal.close();
   }
 }
 
@@ -60,7 +62,6 @@ form.addEventListener('submit', (e) => {
   let categoria = document.getElementById("categoria").value;
 
   CrearItem(producto, precio, categoria);
-  form.reset();
   mostrarInventario()
 })
 
