@@ -44,14 +44,14 @@ function mostrarInventario() {
   if (!(buscador.value == "" )) {
     const elemento = datos.find((e) => e.producto == buscador.value);
     if (!elemento) {
-      inventario.innerHTML = `<h3 class="mensaje">No hay productos con este nombre</h3>`
+      inventario.innerHTML = `<h5 class="mensaje">No hay productos con este nombre</h5>`
     } else {
       inventario.innerHTML = ``;
       inventario.innerHTML += `<div class="card">
         <div class="card-body">
-          <h3>Producto: ${elemento.producto}</h3>
-          <h3>Precio Unitario: ${elemento.precio}</h3>
-          <h3>Categoría: ${elemento.categoria}</h3>
+          <h5>Producto: ${elemento.producto}</h5>
+          <h5>Precio Unitario: ${elemento.precio}</h5>
+          <h5>Categoría: ${elemento.categoria}</h5>
         </div>
       </div>`;
     }
@@ -60,30 +60,30 @@ function mostrarInventario() {
     if (filtro != "") {
       datosfiltro = datos.filter(datos => datos.categoria == filtro);
       if (!datosfiltro.length) {
-        inventario.innerHTML = `<h3 class="mensaje">No hay datos con esta categoría</h3>`
+        inventario.innerHTML = `<h5 class="mensaje">No hay datos con esta categoría</h5>`
       } else {
         inventario.innerHTML = ``;
         datosfiltro.forEach(dato => {
           inventario.innerHTML += `<div class="card mb-3">
             <div class="card-body">
-              <h3>Producto: ${dato.producto}</h3>
-              <h3>Precio Unitario: ${dato.precio}</h3>
-              <h3>Categoría: ${dato.categoria}</h3>
+              <h5>Producto: ${dato.producto}</h5>
+              <h5>Precio Unitario: ${dato.precio}</h5>
+              <h5>Categoría: ${dato.categoria}</h5>
             </div>
           </div>`;
         });
       }
     } else {
       if (!datos.length) {
-        inventario.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
+        inventario.innerHTML = `<h5 class="mensaje">No hay datos</h5>`
       } else {
         inventario.innerHTML = ``;
         datos.forEach(dato => {
           inventario.innerHTML += `<div class="card mb-3">
             <div class="card-body">
-              <h3>Producto: ${dato.producto}</h3>
-              <h3>Precio Unitario: ${dato.precio}</h3>
-              <h3>Categoría: ${dato.categoria}</h3>
+              <h5>Producto: ${dato.producto}</h5>
+              <h5>Precio Unitario: ${dato.precio}</h5>
+              <h5>Categoría: ${dato.categoria}</h5>
             </div>
           </div>`;
         });
