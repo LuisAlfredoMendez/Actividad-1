@@ -1,6 +1,18 @@
 const inventario = document.getElementById("inventario");
 const form = document.getElementById("form");
 
+const busqueda = document.getElementById("button-addon");
+
+busqueda.addEventListener("click", () => {
+  mostrarInventario()
+});
+
+const inputGroupSelect = document.getElementById("inputGroupSelect");
+
+inputGroupSelect.addEventListener("change", () => {
+  mostrarInventario()
+})
+
 document.getElementById("borrar").addEventListener('click', () => {
   arraydatos = [];
   localStorage.setItem('datos', JSON.stringify(arraydatos));
@@ -28,20 +40,55 @@ const CrearItem = (producto, precio, categoria) => {
 
 function mostrarInventario() {
   let datos = JSON.parse(localStorage.getItem('datos'));
-  // let filtrado = students.filter(student => student.score >= 11);
-  if (!datos.length) {
-    inventario.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
+  let buscador = document.getElementById("buscador");
+  if (!(buscador.value == "" )) {
+    const elemento = datos.find((e) => e.producto == buscador.value);
+    if (!elemento) {
+      inventario.innerHTML = `<h3 class="mensaje">No hay productos con este nombre</h3>`
+    } else {
+      inventario.innerHTML = ``;
+      inventario.innerHTML += `<div class="card">
+        <div class="card-body">
+          <h3>Producto: ${elemento.producto}</h3>
+          <h3>Precio Unitario: ${elemento.precio}</h3>
+          <h3>Categoría: ${elemento.categoria}</h3>
+        </div>
+      </div>`;
+    }
   } else {
-    inventario.innerHTML = ``;
-    datos.forEach(dato => {
-      inventario.innerHTML += `<div class="card mb-3">
-      <div class="card-body">
-        <h3>Producto: ${dato.producto}</h3>
-        <h3>Precio Unitario: ${dato.precio}</h3>
-        <h3>Categoría: ${dato.categoria}</h3>
-      </div>
-    </div>`;
-    });
+    let filtro = inputGroupSelect.value
+    if (filtro != "") {
+      datosfiltro = datos.filter(datos => datos.categoria == filtro);
+      if (!datosfiltro.length) {
+        inventario.innerHTML = `<h3 class="mensaje">No hay datos con esta categoría</h3>`
+      } else {
+        inventario.innerHTML = ``;
+        datosfiltro.forEach(dato => {
+          inventario.innerHTML += `<div class="card mb-3">
+            <div class="card-body">
+              <h3>Producto: ${dato.producto}</h3>
+              <h3>Precio Unitario: ${dato.precio}</h3>
+              <h3>Categoría: ${dato.categoria}</h3>
+            </div>
+          </div>`;
+        });
+      }
+    } else {
+      if (!datos.length) {
+        inventario.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
+      } else {
+        inventario.innerHTML = ``;
+        datos.forEach(dato => {
+          inventario.innerHTML += `<div class="card mb-3">
+            <div class="card-body">
+              <h3>Producto: ${dato.producto}</h3>
+              <h3>Precio Unitario: ${dato.precio}</h3>
+              <h3>Categoría: ${dato.categoria}</h3>
+            </div>
+          </div>`;
+        });
+      }
+    }
   }
 };
 
@@ -51,7 +98,6 @@ form.addEventListener('submit', (e) => {
   let precio = document.getElementById("precio").value;
   let categoria = document.getElementById("categoria").value;
 
-  console.log(document.getElementById("producto").value)
   CrearItem(producto, precio, categoria);
   mostrarInventario()
 })

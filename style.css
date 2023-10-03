@@ -14,7 +14,7 @@ body {
 .nav {
   display: flex;
   background-color: #93ace0;
-  box-shadow: 0px 3px 10px #9db6ec;
+  box-shadow: 0px 3px 10px #aac1f1e8;
 }
 
 .logo {
@@ -30,34 +30,6 @@ body {
   font-size: 48px;
 }
 
-.modal {
-  position: fixed;
-  top: 10em;;
-  left:8%;
-  border-color: transparent;
-  border-radius: 20px;
-  width: 80%;
-}
-
-.modal::backdrop {
-  background-color: #00000070;
-}
-
-.formulario {
-  margin: 0 auto;
-  display: none;
-}
-
-.formulario.activo {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.formulario h1 {
-  font-size: 25px;
-}
-
 #form {
   margin: 1rem;
 }
@@ -66,7 +38,7 @@ body {
   margin: .5rem auto;
 }
 
-.contenedor-inventario {
+.inventario {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -77,33 +49,8 @@ body {
   box-shadow: 0px 0px 20px #9db6ec;
 }
 
-.ficha {
-  margin: 1rem;
-  padding: 1.5rem;
-  min-width: 300px;
-  background-color: #e4e6f0;
-  border-color: #24262c;
-  border-radius: 2rem;
-  border-style: solid;
-}
-
-.boton-accion {
-  padding: 10px;
-  font-size: 20px;
-  border-color: #616369;
-  border-radius: .2rem;
-  border-width: 2px;
-  border-style: solid;
-  cursor: pointer;
-}
-
 .acciones:hover {
   font-size: 22px;
-}
-
-.guardar {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 400;
 }
 
 footer {
